@@ -1,0 +1,43 @@
+name: Test only
+
+on: [push, pull_request]
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: [18.13]
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+
+    - name: Use Node.js ${{ matrix.node-version }}
+      uses: actions/setup-node@v2
+      with:
+        node-version: ${{ matrix.node-version }}
+
+    - name: Install dependencies
+      run: npm ci
+
+    - name: Build the Lego Library
+      run: ng build lego
+
+    - name: Build the Angular App
+      run: ng build --prod
+
+    - name: Build Storybook
+      run: npm run build-storybook
+
+    - name: Run Component Tests
+      uses: cypress-io/github-action@v6
+      with:
+        working-directory: projects/**/*.cy.ts
+        component: true
+
+    - name: Run E2E Tests
+      uses: cypress-io/github-action@v6
+      with:
+        working-directory: cypress/e2e/*
