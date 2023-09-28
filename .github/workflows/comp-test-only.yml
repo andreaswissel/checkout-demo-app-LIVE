@@ -26,11 +26,8 @@ jobs:
     - name: Build library and app
       run: npm run build
 
-    - name: Build Storybook
-      run: npm run build-storybook
-
     - name: Run Component Tests
       uses: cypress-io/github-action@v6
       with:
-        working-directory: projects/**/*.cy.ts
+        working-directory: projects/lego
         component: true
