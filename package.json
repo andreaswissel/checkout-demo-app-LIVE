@@ -6,7 +6,7 @@
     "start": "ng serve",
     "build": "npm run build:library && npm run build:app",
     "build:library": "ng build --project=lego",
-    "build:app": "ng build --project=checkout-demo-app --base-href ./",
+    "build:app": "ng build --project=checkout-demo-app",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
     "test:lib": "ng test lego",
