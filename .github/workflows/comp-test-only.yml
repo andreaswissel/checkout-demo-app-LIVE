@@ -6,11 +6,12 @@ jobs:
   build-and-test:
     runs-on: ubuntu-latest
 
-    strategy:
-      matrix:
-        node-version: [18.13]
-
     steps:
+    - name: Setup Node.js
+      uses: actions/setup-node@v3
+      with:
+        node-version: 18
+
     - name: Checkout code
       uses: actions/checkout@v4
 
@@ -23,10 +24,10 @@ jobs:
       run: npm ci
 
     - name: Build the Lego Library
-      run: ng build lego
+      run: npm run build lego
 
     - name: Build the Angular App
-      run: ng build --prod
+      run: npm run build -- --prod
 
     - name: Build Storybook
       run: npm run build-storybook

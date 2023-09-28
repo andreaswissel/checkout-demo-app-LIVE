@@ -1,9 +1,7 @@
 {
   "extends": "../tsconfig.lib.json",
   "compilerOptions": {
-    "types": ["node", "google.maps",
-    "cypress",
-    "@testing-library/cypress"],
+    "types": ["node", "google.maps"],
     "allowSyntheticDefaultImports": true,
     "resolveJsonModule": true
   },
