@@ -27,7 +27,7 @@ jobs:
       run: npm run build lego
 
     - name: Build the Angular App
-      run: npm run build -- --configuration prod
+      run: npm run build -- --configuration production
 
     - name: Build Storybook
       run: npm run build-storybook
