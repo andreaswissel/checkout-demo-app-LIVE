@@ -8,7 +8,7 @@ import { NgIf } from '@angular/common';
   selector: 'app-order',
   templateUrl: './order.component.html',
   styleUrls: ['./order.component.scss'],
-  imports: [CheckoutFormComponent, ButtonComponent, NgIf], // TODO: alles in AppModule importieren fuer negativbeispiel
+  imports: [CheckoutFormComponent, ButtonComponent, NgIf],
   standalone: true,
 })
 export class OrderComponent {

@@ -23,11 +23,8 @@ jobs:
     - name: Install dependencies
       run: npm ci
 
-    - name: Build the Lego Library
-      run: npm run build lego
-
-    - name: Build the Angular App
-      run: npm run build -- --configuration production
+    - name: Build library and app
+      run: npm run build
 
     - name: Build Storybook
       run: npm run build-storybook
