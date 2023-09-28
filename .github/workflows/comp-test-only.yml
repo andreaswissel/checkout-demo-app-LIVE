@@ -1,4 +1,4 @@
-name: Test only
+name: Component test only
 
 on: [push, pull_request]
 
@@ -36,8 +36,3 @@ jobs:
       with:
         working-directory: projects/**/*.cy.ts
         component: true
-
-    - name: Run E2E Tests
-      uses: cypress-io/github-action@v6
-      with:
-        working-directory: cypress/e2e/*
