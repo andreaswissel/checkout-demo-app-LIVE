@@ -25,34 +25,10 @@ describe('AutocompleteComponent', () => {
   // TODO: Delete text, type "bbq", select option, check that setOption has been called with the right value
 
   beforeEach(() => {
-    cy.mount(AutocompleteComponent, {
-      imports: [NoopAnimationsModule],
-      componentProperties: {
-        label: 'Autocomplete',
-        placeholder: 'Enter favorite food',
-        options,
-        onOptionSet: new EventEmitter<string>(),
-      },
-    }).then((mountedComponent) => {
-      cy.spy(mountedComponent.component.onOptionSet, 'emit').as('setOptionSpy');
-    });
+    // mount the component and spy on the setOption event
   });
 
-  it('should call setOption with the selected option value after the option is selected', () => {
-    cy.get('input').type('steak sa');
-    cy.findByRole('option', { name: selectedOption }).should('exist');
-    cy.findByRole('option', { name: selectedOption }).click();
+  it('should call setOption with the selected option value after the option is selected', () => {});
 
-    cy.get('@setOptionSpy').should('have.been.calledWith', selectedOption);
-  });
-
-  it('should delete the text and check if bbq is also an option', () => {
-    cy.get('input').clear();
-    cy.get('input').type('bbq');
-
-    cy.findByRole('option', { name: bbqRibsRegEx }).should('exist');
-    cy.findByRole('option', { name: bbqRibsRegEx }).click();
-
-    cy.get('@setOptionSpy').should('have.been.calledWith', 'BBQ ribs');
-  });
+  it('should delete the text and check if bbq is also an option', () => {});
 });

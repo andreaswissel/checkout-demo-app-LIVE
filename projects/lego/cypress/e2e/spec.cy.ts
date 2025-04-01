@@ -1,6 +1,14 @@
 describe('My First Test', () => {
-  it('Visits the initial project page', () => {
-    cy.visit('/')
-    cy.contains('app is running!')
-  })
-})
+  beforeEach(() => {
+    cy.visit('/');
+    // get order button and alias
+  });
+
+  it('Visits the app, fills out the order form and confirms that the user is being redirected after submit', () => {
+    // fill out form
+    // select address
+    // click order button
+    // check that loading state is present
+    // check redirect
+  });
+});
