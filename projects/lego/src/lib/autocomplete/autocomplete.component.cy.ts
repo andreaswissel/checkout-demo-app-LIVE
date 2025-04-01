@@ -3,9 +3,10 @@ import {
   provideAnimations,
 } from '@angular/platform-browser/animations';
 import { AutocompleteComponent } from './autocomplete.component';
-import { Default } from './autocomplete.stories';
 import { EventEmitter } from '@angular/core';
 import '@testing-library/cypress/add-commands';
+
+const options = ['Steak sandwhich', 'BBQ ribs', 'Hamburger', 'French fries'];
 
 // Extend Cypress namespace
 declare global {
@@ -27,7 +28,9 @@ describe('AutocompleteComponent', () => {
     cy.mount(AutocompleteComponent, {
       imports: [NoopAnimationsModule],
       componentProperties: {
-        ...Default.args,
+        label: 'Autocomplete',
+        placeholder: 'Enter favorite food',
+        options,
         onOptionSet: new EventEmitter<string>(),
       },
     }).then((mountedComponent) => {
@@ -50,6 +53,6 @@ describe('AutocompleteComponent', () => {
     cy.findByRole('option', { name: bbqRibsRegEx }).should('exist');
     cy.findByRole('option', { name: bbqRibsRegEx }).click();
 
-    cy.get('@setOptionSpy').should('have.been.calledWith', bbqRibsRegEx);
+    cy.get('@setOptionSpy').should('have.been.calledWith', 'BBQ ribs');
   });
 });
