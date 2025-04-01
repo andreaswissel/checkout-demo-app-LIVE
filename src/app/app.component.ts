@@ -4,11 +4,10 @@ import { OrderComponent } from './order/order.component';
 import { RouterOutlet } from '@angular/router';
 
 @Component({
-  selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss'],
-  imports: [OrderComponent, RouterOutlet],
-  standalone: true,
+    selector: 'app-root',
+    templateUrl: './app.component.html',
+    styleUrls: ['./app.component.scss'],
+    imports: [OrderComponent, RouterOutlet]
 })
 export class AppComponent {
   title = 'checkout-demo-app';

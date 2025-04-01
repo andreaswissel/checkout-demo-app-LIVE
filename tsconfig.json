@@ -15,11 +15,12 @@
         "dist/lego"
       ]
     },
-    "types": ["@testing-library/cypress"],
+    "types": ["node", "google.maps"],
     "noImplicitReturns": true,
     "noFallthroughCasesInSwitch": true,
     "sourceMap": true,
     "declaration": false,
+    "downlevelIteration": true,
     "experimentalDecorators": true,
     "moduleResolution": "node",
     "importHelpers": true,
